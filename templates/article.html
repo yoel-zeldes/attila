@@ -186,6 +186,8 @@
 
                 </section>
 
+                {% include 'subscribe.html' %}
+
                 {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
                 <script type="text/javascript">
                     var disqus = '{{ DISQUS_SITENAME }}';
