@@ -469,7 +469,7 @@ html.menu-active,
 }
 
 body {
-    font: 400 2em / 1.5em 'Cardo', serif;
+    font: 400 2em / 1.5em 'Open Sans', 'Lora', 'Times New Roman', serif;
     color: #45484d;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
