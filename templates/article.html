@@ -182,25 +182,21 @@
                 {% include 'subscribe.html' %}
 
                 {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
-                <script type="text/javascript">
-                    var disqus = '{{ DISQUS_SITENAME }}';
-                    var disqus_shortname = '{{ DISQUS_SITENAME }}';
-                    {% if article.disqus_identifier %}
-                    var disqus_identifier = '{{ article.disqus_identifier }}';
-                    {% else %}
-                    var disqus_identifier = '/{{ article.url }}';
-                    {% endif %}
-                    var disqus_url = '{{ SITEURL }}/{{ article.url }}';
-                </script>
-                <noscript>Please enable JavaScript to view the comments.</noscript>
-                <section class="post-comments">
-                    {% if article.disqus_identifier %}
-                        <a id="show-disqus" class="post-comments-activate" data-disqus-identifier="{{ article.disqus_identifier }}" >Show Comments</a>
-                    {% else %}
-                        <a id="show-disqus" class="post-comments-activate" data-disqus-identifier="/{{ article.url }}" >Show Comments</a>
-                    {% endif %}
+                <div class="comments">
+                    <h2>Comments !</h2>
                     <div id="disqus_thread"></div>
-                </section>
+                    <script type="text/javascript">
+                        var disqus_shortname = '{{ DISQUS_SITENAME }}';
+                        var disqus_identifier = '{{ article.url }}';
+                        var disqus_url = '{{ SITEURL }}/{{ article.url }}';
+                        (function() {
+                            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                            dsq.src = '//{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the comments.</noscript>
+                </div>
                 {% endif %}
 
                 <aside class="post-nav">
